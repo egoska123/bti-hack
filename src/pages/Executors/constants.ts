@@ -1,0 +1,318 @@
+export interface OrderRow {
+  id: string;
+  orderNumber: string;
+  clientName: string;
+  address: string;
+  status: 'pending' | 'in_progress' | 'completed' | 'cancelled';
+  date: string;
+  amount: number;
+}
+
+export interface CalendarOrder {
+  id: string;
+  visitNumber: string;
+  date: string;
+  address: string;
+  service: string;
+  context: string;
+}
+
+export const ORDERS_DATA: OrderRow[] = [
+  {
+    id: '1',
+    orderNumber: 'ORD-001',
+    clientName: 'Иванов Иван Иванович',
+    address: 'ул. Красная, д. 10, кв. 25',
+    status: 'pending',
+    date: '2024-01-15',
+    amount: 50000,
+  },
+  {
+    id: '2',
+    orderNumber: 'ORD-002',
+    clientName: 'Петрова Мария Сергеевна',
+    address: 'ул. Ленина, д. 5, кв. 12',
+    status: 'in_progress',
+    date: '2024-01-16',
+    amount: 75000,
+  },
+  {
+    id: '3',
+    orderNumber: 'ORD-003',
+    clientName: 'Сидоров Петр Александрович',
+    address: 'пр. Мира, д. 20, кв. 8',
+    status: 'completed',
+    date: '2024-01-14',
+    amount: 120000,
+  },
+  {
+    id: '4',
+    orderNumber: 'ORD-004',
+    clientName: 'Козлова Анна Викторовна',
+    address: 'ул. Советская, д. 15, кв. 30',
+    status: 'pending',
+    date: '2024-01-17',
+    amount: 90000,
+  },
+  {
+    id: '5',
+    orderNumber: 'ORD-005',
+    clientName: 'Морозов Дмитрий Олегович',
+    address: 'ул. Гагарина, д. 7, кв. 15',
+    status: 'in_progress',
+    date: '2024-01-18',
+    amount: 65000,
+  },
+  {
+    id: '6',
+    orderNumber: 'ORD-006',
+    clientName: 'Волкова Елена Николаевна',
+    address: 'пр. Победы, д. 12, кв. 42',
+    status: 'completed',
+    date: '2024-01-13',
+    amount: 110000,
+  },
+  {
+    id: '7',
+    orderNumber: 'ORD-007',
+    clientName: 'Новиков Сергей Владимирович',
+    address: 'ул. Пушкина, д. 25, кв. 18',
+    status: 'pending',
+    date: '2024-01-19',
+    amount: 80000,
+  },
+  {
+    id: '8',
+    orderNumber: 'ORD-008',
+    clientName: 'Федорова Ольга Игоревна',
+    address: 'ул. Чехова, д. 8, кв. 22',
+    status: 'in_progress',
+    date: '2024-01-20',
+    amount: 95000,
+  },
+  {
+    id: '9',
+    orderNumber: 'ORD-009',
+    clientName: 'Смирнов Алексей Петрович',
+    address: 'ул. Мира, д. 14, кв. 7',
+    status: 'pending',
+    date: '2024-01-21',
+    amount: 55000,
+  },
+  {
+    id: '10',
+    orderNumber: 'ORD-010',
+    clientName: 'Кузнецова Татьяна Викторовна',
+    address: 'пр. Ленина, д. 30, кв. 45',
+    status: 'completed',
+    date: '2024-01-12',
+    amount: 135000,
+  },
+  {
+    id: '11',
+    orderNumber: 'ORD-011',
+    clientName: 'Лебедев Андрей Сергеевич',
+    address: 'ул. Садовая, д. 18, кв. 33',
+    status: 'in_progress',
+    date: '2024-01-22',
+    amount: 70000,
+  },
+  {
+    id: '12',
+    orderNumber: 'ORD-012',
+    clientName: 'Соколова Марина Владимировна',
+    address: 'пр. Комсомольский, д. 22, кв. 11',
+    status: 'pending',
+    date: '2024-01-23',
+    amount: 85000,
+  },
+  {
+    id: '13',
+    orderNumber: 'ORD-013',
+    clientName: 'Попов Игорь Николаевич',
+    address: 'ул. Центральная, д. 5, кв. 20',
+    status: 'completed',
+    date: '2024-01-11',
+    amount: 100000,
+  },
+  {
+    id: '14',
+    orderNumber: 'ORD-014',
+    clientName: 'Васильева Екатерина Александровна',
+    address: 'ул. Новая, д. 12, кв. 5',
+    status: 'in_progress',
+    date: '2024-01-24',
+    amount: 60000,
+  },
+  {
+    id: '15',
+    orderNumber: 'ORD-015',
+    clientName: 'Петров Владимир Иванович',
+    address: 'пр. Строителей, д. 8, кв. 15',
+    status: 'pending',
+    date: '2024-01-25',
+    amount: 75000,
+  },
+  {
+    id: '16',
+    orderNumber: 'ORD-016',
+    clientName: 'Михайлова Ольга Сергеевна',
+    address: 'ул. Зеленая, д. 15, кв. 28',
+    status: 'completed',
+    date: '2024-01-10',
+    amount: 125000,
+  },
+  {
+    id: '17',
+    orderNumber: 'ORD-017',
+    clientName: 'Федоров Дмитрий Петрович',
+    address: 'пр. Мира, д. 25, кв. 40',
+    status: 'in_progress',
+    date: '2024-01-26',
+    amount: 68000,
+  },
+  {
+    id: '18',
+    orderNumber: 'ORD-018',
+    clientName: 'Морозова Анна Викторовна',
+    address: 'ул. Ленина, д. 30, кв. 12',
+    status: 'pending',
+    date: '2024-01-27',
+    amount: 92000,
+  },
+  {
+    id: '19',
+    orderNumber: 'ORD-019',
+    clientName: 'Волков Сергей Николаевич',
+    address: 'ул. Победы, д. 7, кв. 19',
+    status: 'completed',
+    date: '2024-01-09',
+    amount: 115000,
+  },
+  {
+    id: '20',
+    orderNumber: 'ORD-020',
+    clientName: 'Новикова Татьяна Олеговна',
+    address: 'пр. Гагарина, д. 14, кв. 35',
+    status: 'in_progress',
+    date: '2024-01-28',
+    amount: 78000,
+  },
+  {
+    id: '21',
+    orderNumber: 'ORD-021',
+    clientName: 'Козлов Алексей Владимирович',
+    address: 'ул. Советская, д. 20, кв. 8',
+    status: 'pending',
+    date: '2024-01-29',
+    amount: 88000,
+  },
+  {
+    id: '22',
+    orderNumber: 'ORD-022',
+    clientName: 'Смирнова Елена Игоревна',
+    address: 'ул. Мира, д. 11, кв. 22',
+    status: 'completed',
+    date: '2024-01-08',
+    amount: 130000,
+  },
+  {
+    id: '23',
+    orderNumber: 'ORD-023',
+    clientName: 'Кузнецов Петр Александрович',
+    address: 'пр. Ленина, д. 18, кв. 14',
+    status: 'in_progress',
+    date: '2024-01-30',
+    amount: 72000,
+  },
+  {
+    id: '24',
+    orderNumber: 'ORD-024',
+    clientName: 'Лебедева Мария Дмитриевна',
+    address: 'ул. Садовая, д. 9, кв. 31',
+    status: 'pending',
+    date: '2024-01-31',
+    amount: 96000,
+  },
+];
+
+export const CALENDAR_ORDERS_DATA: CalendarOrder[] = [
+  {
+    id: '1',
+    visitNumber: '412',
+    date: '13.01.2025',
+    address: 'г. Краснодар, ул. Пушкина, д. 42',
+    service: 'Услуга №3',
+    context: 'снос стены между кухней и гостиной, установка арки',
+  },
+  {
+    id: '2',
+    visitNumber: '413',
+    date: '14.01.2025',
+    address: 'г. Краснодар, ул. Ленина, д. 15',
+    service: 'Услуга №1',
+    context: 'перепланировка квартиры, объединение комнат',
+  },
+  {
+    id: '3',
+    visitNumber: '414',
+    date: '15.01.2025',
+    address: 'г. Краснодар, пр. Мира, д. 28',
+    service: 'Услуга №2',
+    context: 'демонтаж перегородок, расширение ванной комнаты',
+  },
+  {
+    id: '4',
+    visitNumber: '415',
+    date: '16.01.2025',
+    address: 'г. Краснодар, ул. Советская, д. 7',
+    service: 'Услуга №3',
+    context: 'снос стены, установка раздвижных дверей',
+  },
+  {
+    id: '5',
+    visitNumber: '416',
+    date: '17.01.2025',
+    address: 'г. Краснодар, ул. Гагарина, д. 22',
+    service: 'Услуга №1',
+    context: 'перепланировка, создание студии из двухкомнатной квартиры',
+  },
+  {
+    id: '6',
+    visitNumber: '417',
+    date: '18.01.2025',
+    address: 'г. Краснодар, пр. Победы, д. 35',
+    service: 'Услуга №2',
+    context: 'демонтаж стен, объединение кухни и балкона',
+  },
+  {
+    id: '7',
+    visitNumber: '418',
+    date: '19.01.2025',
+    address: 'г. Краснодар, ул. Пушкина, д. 10',
+    service: 'Услуга №3',
+    context: 'снос перегородки, расширение спальни',
+  },
+  {
+    id: '8',
+    visitNumber: '419',
+    date: '20.01.2025',
+    address: 'г. Краснодар, ул. Ленина, д. 45',
+    service: 'Услуга №1',
+    context: 'перепланировка, разделение большой комнаты на две',
+  },
+];
+
+export const STATUS_LABELS: Record<OrderRow['status'], string> = {
+  pending: 'Ожидает',
+  in_progress: 'В работе',
+  completed: 'Завершено',
+  cancelled: 'Отменено',
+};
+
+export const STATUS_COLORS: Record<OrderRow['status'], string> = {
+  pending: 'var(--color-muted-foreground)',
+  in_progress: 'var(--color-primary)',
+  completed: '#22c55e',
+  cancelled: '#ef4444',
+};

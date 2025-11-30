@@ -1,0 +1,112 @@
+.root {
+  width: 100%;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.item {
+  border-color: var(--color-input);
+}
+
+.trigger {
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-sidebar-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.trigger:hover {
+  background-color: var(--color-sidebar-item-hover);
+  text-decoration: none;
+}
+
+.triggerText {
+  flex: 1;
+}
+
+.content {
+  padding: 0 var(--space-md) var(--space-sm) var(--space-md);
+}
+
+.toolsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs, 4px);
+}
+
+.toolRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs, 4px);
+  width: 100%;
+}
+
+.toolButton {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: var(--space-xs) var(--space-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-sidebar-text);
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.toolButton:hover {
+  background-color: var(--color-sidebar-item-hover);
+}
+
+.toolButton:focus {
+  outline: none;
+}
+
+.toolButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--color-input);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-sidebar-text);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.addButton:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.addButton:focus {
+  outline: none;
+}
+
+.addButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.addIcon {
+  width: 14px;
+  height: 14px;
+}
+

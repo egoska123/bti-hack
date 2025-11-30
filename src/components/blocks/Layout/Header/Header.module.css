@@ -1,0 +1,101 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 60px !important;
+  max-height: 60px !important;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--color-input);
+  background-color: var(--color-background);
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-card-foreground);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-card-foreground);
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.editButton:hover {
+  color: var(--color-primary);
+}
+
+.editButton:focus {
+  outline: none;
+}
+
+.editButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.helpButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-card-foreground);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.helpButton:hover {
+  background-color: var(--color-accent);
+}
+
+.helpButton:focus {
+  outline: none;
+}
+
+.helpButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+

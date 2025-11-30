@@ -1,0 +1,393 @@
+{
+  "meta": {
+    "width": 992,
+    "height": 1404,
+    "unit": "px",
+    "scale": {
+      "px_per_meter": 54.5
+    },
+    "background": {
+      "file_id": "original_image.jpg",
+      "opacity": 0.7
+    }
+  },
+  "elements": [
+    {
+      "id": "wall_outer_top",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": true,
+      "thickness": 0.22,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          82,
+          280,
+          454,
+          280
+        ]
+      }
+    },
+    {
+      "id": "wall_outer_bottom",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": true,
+      "thickness": 0.22,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          454,
+          620,
+          82,
+          620
+        ]
+      }
+    },
+    {
+      "id": "wall_outer_left",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": true,
+      "thickness": 0.22,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          82,
+          620,
+          82,
+          280
+        ]
+      }
+    },
+    {
+      "id": "wall_outer_right",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": true,
+      "thickness": 0.22,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          454,
+          280,
+          454,
+          620
+        ]
+      }
+    },
+    {
+      "id": "wall_living_hall_upper",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": true,
+      "thickness": 0.22,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          277,
+          388,
+          277,
+          497
+        ]
+      }
+    },
+    {
+      "id": "wall_living_hall_lower",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": true,
+      "thickness": 0.22,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          277,
+          560,
+          277,
+          620
+        ]
+      }
+    },
+    {
+      "id": "wall_bedroom1_living",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          82,
+          388,
+          277,
+          388
+        ]
+      }
+    },
+    {
+      "id": "wall_bedroom2_wardrobe",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          277,
+          388,
+          359,
+          388
+        ]
+      }
+    },
+    {
+      "id": "wall_wardrobe_right",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          359,
+          388,
+          454,
+          388
+        ]
+      }
+    },
+    {
+      "id": "wall_bedroom2_wardrobe_vert",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          359,
+          388,
+          359,
+          442
+        ]
+      }
+    },
+    {
+      "id": "wall_bedroom2_hall",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          277,
+          442,
+          315,
+          442
+        ]
+      }
+    },
+    {
+      "id": "wall_wardrobe_hall",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          359,
+          442,
+          400,
+          442
+        ]
+      }
+    },
+    {
+      "id": "wall_hall_right_upper",
+      "type": "wall",
+      "role": "EXISTING",
+      "loadBearing": false,
+      "thickness": 0.11,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          400,
+          442,
+          454,
+          442
+        ]
+      }
+    },
+    {
+      "id": "zone_living_room",
+      "type": "zone",
+      "zoneType": "living_room",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "polygon",
+        "points": [
+          82,
+          388,
+          277,
+          388,
+          277,
+          620,
+          82,
+          620
+        ]
+      }
+    },
+    {
+      "id": "zone_bedroom1",
+      "type": "zone",
+      "zoneType": "bedroom",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "polygon",
+        "points": [
+          82,
+          280,
+          277,
+          280,
+          277,
+          388,
+          82,
+          388
+        ]
+      }
+    },
+    {
+      "id": "zone_bedroom2",
+      "type": "zone",
+      "zoneType": "bedroom",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "polygon",
+        "points": [
+          277,
+          388,
+          359,
+          388,
+          359,
+          442,
+          277,
+          442
+        ]
+      }
+    },
+    {
+      "id": "zone_wardrobe",
+      "type": "zone",
+      "zoneType": "wardrobe",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "polygon",
+        "points": [
+          359,
+          388,
+          454,
+          388,
+          454,
+          442,
+          359,
+          442
+        ]
+      }
+    },
+    {
+      "id": "zone_entrance_hall",
+      "type": "zone",
+      "zoneType": "entrance_hall",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "polygon",
+        "points": [
+          277,
+          442,
+          454,
+          442,
+          454,
+          620,
+          277,
+          620
+        ]
+      }
+    },
+    {
+      "id": "door_living_room_to_hall",
+      "type": "door",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          277,
+          497,
+          277,
+          560
+        ]
+      }
+    },
+    {
+      "id": "door_bedroom2_to_hall",
+      "type": "door",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          315,
+          442,
+          277,
+          442
+        ]
+      }
+    },
+    {
+      "id": "door_wardrobe_to_hall",
+      "type": "door",
+      "role": "EXISTING",
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          400,
+          442,
+          454,
+          442
+        ]
+      }
+    },
+    {
+      "id": "window_bedroom1",
+      "type": "window",
+      "role": "EXISTING",
+      "windowType": null,
+      "sillHeight_m": null,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          162,
+          280,
+          198,
+          280
+        ]
+      }
+    },
+    {
+      "id": "window_living_room",
+      "type": "window",
+      "role": "EXISTING",
+      "windowType": null,
+      "sillHeight_m": null,
+      "geometry": {
+        "kind": "segment",
+        "points": [
+          82,
+          462,
+          82,
+          518
+        ]
+      }
+    }
+  ]
+}

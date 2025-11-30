@@ -1,0 +1,149 @@
+.root {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+  width: 100%;
+  padding: 6px var(--space-sm);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.container {
+  display: flex;
+  flex: 1 0 0;
+  gap: var(--space-sm);
+  align-items: center;
+  min-width: 0;
+  padding: 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-sidebar-text);
+}
+
+.icon svg {
+  width: 16.667px;
+  height: 16.667px;
+}
+
+.content {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.text {
+  display: block;
+  color: var(--color-sidebar-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.submenuIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-sidebar-text);
+  opacity: 0.6;
+}
+
+/* Variants */
+.default {
+  color: var(--color-muted-foreground);
+}
+
+.default:hover:not(:disabled) {
+  background-color: var(--color-sidebar-item-hover);
+  color: var(--color-sidebar-text-active);
+}
+
+.default:hover:not(:disabled) .icon {
+  color: var(--color-sidebar-text-active);
+}
+
+.default:hover:not(:disabled) .text {
+  color: var(--color-sidebar-text-active);
+}
+
+.active {
+  background-color: var(--color-sidebar-item-active);
+  color: var(--color-sidebar-text-active);
+}
+
+.active .icon {
+  color: var(--color-sidebar-text-active);
+}
+
+.active .text {
+  color: var(--color-sidebar-text-active);
+}
+
+.active .submenuIndicator {
+  color: var(--color-sidebar-text-active);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+/* Badge variants */
+.active .badge {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.default:hover:not(:disabled) .badge {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+

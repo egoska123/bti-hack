@@ -1,0 +1,125 @@
+.root {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--color-background);
+  border: 0.897px solid #d1d5dc;
+  border-radius: 24px;
+}
+
+.attachButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-sidebar-text);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.attachButton:hover {
+  background-color: var(--color-accent);
+}
+
+.attachButton:focus {
+  outline: none;
+}
+
+.attachButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.input {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-card-foreground);
+  outline: none;
+}
+
+.input::placeholder {
+  color: #99a1af;
+}
+
+.mathButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-sidebar-text);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.mathButton:hover {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+}
+
+.mathButton:focus {
+  outline: none;
+}
+
+.mathButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.sendButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  border: none;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-primary-foreground);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.sendButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.sendButton:focus {
+  outline: none;
+}
+
+.sendButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+

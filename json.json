@@ -1,0 +1,490 @@
+
+{ 
+     "meta": {
+      "width": 1000,
+      "height": 700,
+      "unit": "px",
+      "scale": {
+        "px_per_meter": 50
+      },
+      "background": null,
+      "ceiling_height_m": 2.75
+    },
+    "elements": [
+      {
+        "id": "wall_top",
+        "type": "wall",
+        "role": "EXISTING",
+        "loadBearing": true,
+        "thickness": 20,
+        "zoneType": null,
+        "relatedTo": null,
+        "selected": false,
+        "style": {
+          "color": "#b45a3c",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "segment",
+          "points": [
+            100,
+            100,
+            800,
+            100
+          ]
+        }
+      },
+      {
+        "id": "wall_right",
+        "type": "wall",
+        "role": "EXISTING",
+        "loadBearing": true,
+        "thickness": 20,
+        "zoneType": null,
+        "relatedTo": null,
+        "selected": false,
+        "style": {
+          "color": "#b45a3c",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "segment",
+          "points": [
+            800,
+            100,
+            800,
+            600
+          ],
+          "openings": null
+        }
+      },
+      {
+        "id": "wall_bottom",
+        "type": "wall",
+        "role": "EXISTING",
+        "loadBearing": true,
+        "thickness": 20,
+        "zoneType": null,
+        "relatedTo": null,
+        "selected": false,
+        "style": {
+          "color": "#b45a3c",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "segment",
+          "points": [
+            800,
+            600,
+            100,
+            600
+          ],
+          "openings": [
+            {
+              "id": "door_entrance",
+              "type": "door",
+              "from_m": 5.5,
+              "to_m": 6.3,
+              "bottom_m": 0,
+              "top_m": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "wall_left",
+        "type": "wall",
+        "role": "EXISTING",
+        "loadBearing": true,
+        "thickness": 20,
+        "zoneType": null,
+        "relatedTo": null,
+        "selected": false,
+        "style": {
+          "color": "#b45a3c",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "segment",
+          "points": [
+            100,
+            600,
+            100,
+            100
+          ],
+          "openings": null
+        }
+      },
+      {
+        "id": "wall_middle_vertical",
+        "type": "wall",
+        "role": "EXISTING",
+        "loadBearing": false,
+        "thickness": 15,
+        "zoneType": null,
+        "relatedTo": null,
+        "selected": false,
+        "style": {
+          "color": "#a0a0a0",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "segment",
+          "points": [
+            450,
+            100,
+            450,
+            600
+          ],
+          "openings": [
+            {
+              "id": "door_living_to_hall",
+              "type": "door",
+              "from_m": 3.5,
+              "to_m": 4.3,
+              "bottom_m": 0,
+              "top_m": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "wall_middle_horizontal",
+        "type": "wall",
+        "role": "EXISTING",
+        "loadBearing": false,
+        "thickness": 15,
+        "zoneType": null,
+        "relatedTo": null,
+        "selected": false,
+        "style": {
+          "color": "#a0a0a0",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "segment",
+          "points": [
+            450,
+            400,
+            800,
+            400
+          ],
+          "openings": [
+            {
+              "id": "door_bedroom_to_hall",
+              "type": "door",
+              "from_m": 0.8,
+              "to_m": 1.6,
+              "bottom_m": 0,
+              "top_m": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "zone_living",
+        "type": "zone",
+        "role": "EXISTING",
+        "loadBearing": null,
+        "thickness": null,
+        "zoneType": "living_room",
+        "relatedTo": [
+          "wall_top",
+          "wall_left",
+          "wall_bottom",
+          "wall_middle_vertical"
+        ],
+        "selected": true,
+        "style": {
+          "color": "#FFE5CC",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "polygon",
+          "points": [
+            100,
+            100,
+            450,
+            100,
+            450,
+            600,
+            100,
+            600
+          ]
+        }
+      },
+      {
+        "id": "zone_bedroom",
+        "type": "zone",
+        "role": "EXISTING",
+        "loadBearing": null,
+        "thickness": null,
+        "zoneType": "bedroom",
+        "relatedTo": [
+          "wall_top",
+          "wall_middle_vertical",
+          "wall_middle_horizontal",
+          "wall_right"
+        ],
+        "selected": true,
+        "style": {
+          "color": "#CCE5FF",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "polygon",
+          "points": [
+            450,
+            100,
+            800,
+            100,
+            800,
+            400,
+            450,
+            400
+          ]
+        }
+      },
+      {
+        "id": "zone_kitchen",
+        "type": "zone",
+        "role": "EXISTING",
+        "loadBearing": null,
+        "thickness": null,
+        "zoneType": "kitchen",
+        "relatedTo": [
+          "wall_middle_vertical",
+          "wall_right",
+          "wall_bottom",
+          "wall_middle_horizontal"
+        ],
+        "selected": true,
+        "style": {
+          "color": "#FFF7CC",
+          "textureUrl": null
+        },
+        "geometry": {
+          "kind": "polygon",
+          "points": [
+            450,
+            400,
+            800,
+            400,
+            800,
+            600,
+            450,
+            600
+          ]
+        }
+      },
+      {
+        "id": "label_living",
+        "type": "label",
+        "role": "EXISTING",
+        "loadBearing": null,
+        "thickness": null,
+        "zoneType": null,
+        "relatedTo": [
+          "zone_living"
+        ],
+        "selected": false,
+        "style": null,
+        "text": "Комната 16 м² (условно)",
+        "geometry": {
+          "kind": "point",
+          "x": 275,
+          "y": 330
+        }
+      },
+      {
+        "id": "label_bedroom",
+        "type": "label",
+        "role": "EXISTING",
+        "loadBearing": null,
+        "thickness": null,
+        "zoneType": null,
+        "relatedTo": [
+          "zone_bedroom"
+        ],
+        "selected": false,
+        "style": null,
+        "text": "Комната 9.8 м² (условно)",
+        "geometry": {
+          "kind": "point",
+          "x": 625,
+          "y": 250
+        }
+      },
+      {
+        "id": "label_kitchen",
+        "type": "label",
+        "role": "EXISTING",
+        "loadBearing": null,
+        "thickness": null,
+        "zoneType": null,
+        "relatedTo": [
+          "zone_kitchen"
+        ],
+        "selected": false,
+        "style": null,
+        "text": "Кухня/прихожая (упрощено)",
+        "geometry": {
+          "kind": "point",
+          "x": 625,
+          "y": 500
+        }
+      }
+    ],
+    "objects3d": [
+      {
+        "id": "sofa_living",
+        "type": "bed",
+        "position": {
+          "x":3.5,
+          "y": 0,
+          "z": 11.2
+        },
+        "size": {
+          "x": 2.2,
+          "y": 0.9,
+          "z": 0.9
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallId": null,
+        "zoneId": "zone_living",
+        "selected": false,
+        "meta": {
+          "note": "Диван в гостиной (условно)"
+        }
+      },
+      {
+        "id": "bed_main",
+        "type": "bed",
+        "position": {
+          "x": 15,
+          "y": 0,
+          "z": 3
+        },
+        "size": {
+          "x": 3,
+          "y": 0.6,
+          "z": 1.6
+        },
+        "rotation": {
+          "x": 0,
+          "y": 1.57,
+          "z": 0
+        },
+        "wallId": null,
+        "zoneId": "zone_bedroom",
+        "selected": false,
+        "meta": {
+          "note": "Кровать в спальне (условно)"
+        }
+      },
+      {
+        "id": "table_kitchen",
+        "type": "table",
+        "position": {
+          "x": 15,
+          "y": 0.75,
+          "z": 9
+        },
+        "size": {
+          "x": 1.4,
+          "y": 0.2,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallId": null,
+        "zoneId": "zone_kitchen",
+        "selected": false,
+        "meta": {
+          "usage": "dining"
+        }
+      },
+      {
+        "id": "door_entrance_3d",
+        "type": "door",
+        "position": {
+          "x": 10.1,
+          "y": 1.2,
+          "z": 12
+        },
+        "size": {
+          "x": 1,
+          "y": 2.5,
+          "z": 0.5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallId": "wall_bottom",
+        "zoneId": "zone_kitchen",
+        "selected": true,
+        "meta": {
+          "openingDirection": "inside"
+        }
+      },
+      {
+        "id": "window_living_3d",
+        "type": "window",
+        "position": {
+          "x": 3.5,
+          "y": 1.4,
+          "z": 2.2
+        },
+        "size": {
+          "x": 1.2,
+          "y": 1.2,
+          "z": 0.1
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallId": "wall_top",
+        "zoneId": "zone_living",
+        "selected": false,
+        "meta": {
+          "isBalcony": false
+        }
+      },
+      {
+        "id": "window_bedroom_3d",
+        "type": "window",
+        "position": {
+          "x": 11.5,
+          "y": 1.4,
+          "z": 2.2
+        },
+        "size": {
+          "x": 1.2,
+          "y": 1.2,
+          "z": 0.1
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallId": "wall_top",
+        "zoneId": "zone_bedroom",
+        "selected": false,
+        "meta": {
+          "isBalcony": false
+        }
+      }
+    ]
+  }
