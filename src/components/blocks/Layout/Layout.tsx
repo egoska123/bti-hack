@@ -34,8 +34,12 @@ export const Layout = ({ children, className, mode: initialMode = 'editor', onMo
   const showLoadingOverlay = isTransitioning && !isChatScrolledToBottom;
 
   const handleAddElement = (element: FloorPlanElement) => {
+    // Пробуем использовать ref из Plan2D (для обратной совместимости)
     if (addElementRef.current) {
       addElementRef.current(element);
+    } else {
+      // Если ref еще не установлен, логируем предупреждение
+      console.warn('[Layout] addElementRef.current is null, element not added:', element);
     }
   };
 
@@ -45,6 +49,8 @@ export const Layout = ({ children, className, mode: initialMode = 'editor', onMo
   }, [initialMode]);
 
   const handleModeChange = (newMode: LayoutMode) => {
+    console.log('[Layout] Mode change requested:', { from: mode, to: newMode });
+    
     if (newMode === 'editor' && mode === 'chat') {
       // Запускаем анимацию перехода
       setIsTransitioning(true);
@@ -54,6 +60,7 @@ export const Layout = ({ children, className, mode: initialMode = 'editor', onMo
         setMode(newMode);
         setIsTransitioning(false);
         setTransitionDirection(null);
+        console.log('[Layout] Switched to editor mode');
         if (onModeChange) {
           onModeChange(newMode);
         }
@@ -87,6 +94,7 @@ export const Layout = ({ children, className, mode: initialMode = 'editor', onMo
   return (
     <SelectionProvider>
       <ChatProvider>
+        <PlanProvider onAddElement={handleAddElement}>
         <div className={`${styles.root} ${className || ''}`}>
         <aside className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
         {!isCollapsed && (
@@ -111,12 +119,10 @@ export const Layout = ({ children, className, mode: initialMode = 'editor', onMo
 
               <div className={styles.sidebarSections}>
                 {isEditorMode ? (
-                  <PlanProvider onAddElement={handleAddElement}>
-                    <div className={styles.section}>
-                      <div className={styles.sectionTitle}>Инструменты редактирования</div>
-                      <EditorTools />
-                    </div>
-                  </PlanProvider>
+                  <div className={styles.section}>
+                    <div className={styles.sectionTitle}>Инструменты редактирования</div>
+                    <EditorTools />
+                  </div>
                 ) : (
                   <>
                     <div className={styles.section}>
@@ -227,6 +233,7 @@ export const Layout = ({ children, className, mode: initialMode = 'editor', onMo
         )}
       </div>
     </div>
+        </PlanProvider>
       </ChatProvider>
     </SelectionProvider>
   );

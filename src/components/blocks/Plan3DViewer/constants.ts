@@ -126,7 +126,7 @@ export const MOCK_PLAN_DATA = {
               bottom_m: 0,
               top_m: 2,
             },
-          ],
+          ] as const,
         },
       },
       {
@@ -173,7 +173,7 @@ export const MOCK_PLAN_DATA = {
               bottom_m: 0,
               top_m: 2,
             },
-          ],
+          ] as const,
         },
       },
       {
@@ -201,7 +201,7 @@ export const MOCK_PLAN_DATA = {
               bottom_m: 0,
               top_m: 2,
             },
-          ],
+          ] as const,
         },
       },
       {
@@ -464,4 +464,3 @@ export const MOCK_PLAN_DATA = {
     ],
   },
 };
-

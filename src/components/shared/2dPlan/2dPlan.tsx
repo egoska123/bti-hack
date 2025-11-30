@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import * as THREE from 'three';
 import type { FloorPlanData, FloorPlanElement, PolygonGeometry } from './types';
 import { MOCK_FLOOR_PLAN_DATA_INITIAL } from './constants';
@@ -8,6 +8,7 @@ import { EditPanel } from './EditPanel';
 import { useHistory } from './lib/useHistory';
 import { getGlobalToast } from '@/components/ui/toast';
 import { useSelectionContext } from '@/components/blocks/ai/SelectionContext';
+import { usePlanContextSafe } from './PlanContext';
 import styles from './2dPlan.module.css';
 
 // Хук для безопасного использования контекста (опционально)
@@ -67,26 +68,43 @@ export const Plan2D = ({ data, className, onDataChange, onAddElementRef }: Plan2
   );
 
   // Функция для добавления нового элемента
-  const handleAddElement = (element: FloorPlanElement) => {
-    const updatedElements = [...localPlanData.elements, element];
-    const updatedData = {
-      ...localPlanData,
-      elements: updatedElements,
-    };
-    
-    setLocalPlanData(updatedData);
-    setSelectedElement(element);
-    addToHistory(updatedData);
-    
-    // useEffect в useThreeObjects автоматически пересоздаст все объекты при изменении localPlanData
-    // Поэтому не нужно вызывать updateElement вручную
-    
-    if (onDataChange) {
-      onDataChange(updatedData);
-    }
-  };
+  const handleAddElement = useCallback((element: FloorPlanElement) => {
+    setLocalPlanData((prevData) => {
+      const updatedElements = [...prevData.elements, element];
+      const updatedData = {
+        ...prevData,
+        elements: updatedElements,
+      };
+      
+      setSelectedElement(element);
+      addToHistory(updatedData);
+      
+      // useEffect в useThreeObjects автоматически пересоздаст все объекты при изменении localPlanData
+      // Поэтому не нужно вызывать updateElement вручную
+      
+      if (onDataChange) {
+        onDataChange(updatedData);
+      }
+      
+      return updatedData;
+    });
+  }, [addToHistory, onDataChange]);
 
-  // Экспортируем функцию через ref, если передан
+  // Регистрируем обработчик в PlanContext, если доступен
+  const planContext = usePlanContextSafe();
+  
+  useEffect(() => {
+    if (planContext?.registerAddElementHandler) {
+      planContext.registerAddElementHandler(handleAddElement);
+    }
+    return () => {
+      if (planContext?.registerAddElementHandler) {
+        planContext.registerAddElementHandler(null);
+      }
+    };
+  }, [planContext, handleAddElement]);
+
+  // Экспортируем функцию через ref, если передан (для обратной совместимости)
   useEffect(() => {
     if (onAddElementRef) {
       onAddElementRef.current = handleAddElement;
@@ -96,7 +114,7 @@ export const Plan2D = ({ data, className, onDataChange, onAddElementRef }: Plan2
         onAddElementRef.current = null;
       }
     };
-  }, [onAddElementRef, localPlanData, updateElement, addToHistory, onDataChange]);
+  }, [onAddElementRef, handleAddElement]);
 
   // Синхронизируем локальные данные с внешними
   useEffect(() => {

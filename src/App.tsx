@@ -12,7 +12,7 @@ import { OrderDetail } from './pages/Executors/OrderDetail';
 
 // Компонент страницы редактора с переключателем 2D/3D
 const EditorPage = () => {
-  const [viewMode, setViewMode] = useState<'2d' | '3d'>('3d');
+  const [viewMode, setViewMode] = useState<'2d' | '3d'>('2d');
 
   return (
     <Layout mode='chat'>

@@ -14,13 +14,25 @@ export const ChatMessage = ({ message, className, mode, onModeChange }: ChatMess
   const isUser = message.senderType === 'user';
   const isAssistant = message.senderType === 'assistant';
 
-  const handleImageClick = () => {
+  const handleImageClick = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     // Если изображение от ассистента и режим 'chat', переключаем на 'editor'
     if (isAssistant && mode === 'chat' && onModeChange) {
+      console.log('[ChatMessage] Image clicked, switching to editor mode');
       onModeChange('editor');
+    } else {
+      console.log('[ChatMessage] Image click ignored:', {
+        isAssistant,
+        mode,
+        hasOnModeChange: !!onModeChange,
+      });
     }
-    // Если режим 'editor', ничего не делаем
   };
+
+  // Проверяем, является ли изображение кликабельным (от ассистента в режиме чата)
+  const isImageClickable = isAssistant && mode === 'chat' && onModeChange;
 
   return (
     <div
@@ -34,9 +46,18 @@ export const ChatMessage = ({ message, className, mode, onModeChange }: ChatMess
                 key={index}
                 src={imageUrl}
                 alt={`Изображение ${index + 1}`}
-                className={`${styles.messageImage} ${isAssistant && mode === 'chat' ? styles.clickable : ''}`}
-                onClick={isAssistant ? handleImageClick : undefined}
-                style={{ cursor: isAssistant && mode === 'chat' ? 'pointer' : 'default' }}
+                className={`${styles.messageImage} ${isImageClickable ? styles.clickable : ''}`}
+                onClick={isImageClickable ? handleImageClick : undefined}
+                onMouseDown={(e) => {
+                  if (isImageClickable) {
+                    e.preventDefault();
+                  }
+                }}
+                style={{ 
+                  cursor: isImageClickable ? 'pointer' : 'default',
+                  userSelect: 'none',
+                }}
+                draggable={false}
               />
             ))}
           </div>

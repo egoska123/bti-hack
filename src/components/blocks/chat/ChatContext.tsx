@@ -134,8 +134,12 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     // Добавляем сообщение пользователя
     setMessages((prev) => [...prev, userMessage]);
     
-    // Генерируем ответ ассистента только если есть текст
-    if (text.trim()) {
+    // Если пользователь отправил изображение (даже без текста), отправляем ответ с изображением
+    if (images && images.length > 0) {
+      sendImageMessage();
+    }
+    // Генерируем ответ ассистента если есть текст
+    else if (text.trim()) {
       // Определяем следующий индекс ответа
       let nextIndex = scenarioResponseIndexRef.current;
       
@@ -149,9 +153,9 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         scenarioResponseIndexRef.current = nextIndex;
       }
       
-      // Если сценарий уже завершен, показываем загрузку 60 секунд и ошибку сети
+      // Если сценарий уже завершен, отправляем сообщение с изображением
       if (scenarioCompletedRef.current) {
-        sendNetworkError();
+        sendImageMessage();
       }
       // Если есть ответ в сценарии, отправляем его
       else if (nextIndex >= 0 && nextIndex < SCENARIO_RESPONSES.length) {
@@ -206,7 +210,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         setIsLoading(false);
         return [...prev, assistantResponse];
       });
-    }, 1000 + Math.random() * 4000);
+    }, 8000 + Math.random() * 4000);
     
     return () => clearTimeout(timeoutId);
   }, []);
@@ -242,6 +246,36 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         return [...prev, assistantResponse];
       });
     }, 1000 + Math.random() * 4000);
+    
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  // Функция для отправки сообщения с изображением после завершения сценария
+  const sendImageMessage = useCallback(() => {
+    const chatId = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
+    const orderId = '3fa85f64-5717-4562-b3fc-2c963f66afa6';
+    
+    setIsLoading(true);
+    // Задержка от 8 до 12 секунд
+    const delay = 8000 + Math.random() * 4000; // 8000-12000 мс
+    const timeoutId = setTimeout(() => {
+      setMessages((prev) => {
+        const imageMessage: ChatMessage = {
+          id: `msg-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+          chatId,
+          orderId,
+          senderId: 'assistant-1',
+          senderType: 'assistant',
+          messageText: 'Ваши 2д/3д модели готовы!',
+          images: ['/image.png'], // Путь к изображению из public
+          meta: {},
+          createdAt: new Date().toISOString(),
+        };
+
+        setIsLoading(false);
+        return [...prev, imageMessage];
+      });
+    }, delay);
     
     return () => clearTimeout(timeoutId);
   }, []);
